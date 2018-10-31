@@ -4,6 +4,7 @@ from telebot import types
 import requests
 import re
 import config
+from TimeTable import TimeTable
 
 bot = telebot.TeleBot(config.token)
 
@@ -20,6 +21,8 @@ def timetable_choose(message):
 def timetable(message):
     if message.text == 'расписание на день':
         pass
+    if message.text == 'расписание на неделю':
+        print(TimeTable(message.chat.id).get_timetable_for_the_week())
 
 
 
